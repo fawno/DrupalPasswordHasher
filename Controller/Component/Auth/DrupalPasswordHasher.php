@@ -1,7 +1,5 @@
 <?php
-  namespace App\Auth;
-
-  use Cake\Auth\AbstractPasswordHasher;
+  App::uses('AbstractPasswordHasher', 'Controller/Component/Auth');
 
   class DrupalPasswordHasher extends AbstractPasswordHasher {
     private $drupal_hash_count = 15;

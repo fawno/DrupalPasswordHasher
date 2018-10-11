@@ -1,36 +1,37 @@
 # DrupalPasswordHasher
-DrupalPasswordHasher for CakePHP 3.x
+DrupalPasswordHasher for CakePHP 2.x
 
 ## Install
-Copy src/Auth dir into your src dir.
+Copy Controller/Component/Auth dir into your Controller/Component dir.
 
 ## Config AppController.php
 ```php
-  $this->loadComponent('Auth', [
-    'authenticate' => [
-      'Form' => [
-        'passwordHasher' => [
-          'className' => 'Drupal',
+  public $components = [
+    'Auth' => [
+      'authenticate' => [
+        'Form' => [
+          'passwordHasher' => 'Drupal',
+          'fields' => [
+            'username' => 'username',
+            'password' => 'password',
+          ],
         ],
-        'fields' => [
-          'username' => 'username',
-          'password' => 'password',
-        ]
-      ]
+      ],
     ],
-  ]);
+  ];
 ```
-## Config Model/Entity/User.php
+## Config Model/User.php
 ```php
-  use App\Auth\DrupalPasswordHasher;
+  App::uses('DrupalPasswordHasher', 'Controller/Component/Auth');
 
-  class User extends Entity {
-    protected function _setPassword ($value) {
-      if (strlen($value)) {
-        $hasher = new DrupalPasswordHasher();
-
-        return $hasher->hash($value);
+  class User extends AppModel {
+    function beforeSave ($options = array()) {
+      if (isset($this->data[$this->alias]['password'])) {
+        $passwordHasher = new DrupalPasswordHasher();
+        $this->data[$this->alias]['password'] = $passwordHasher->hash($this->data[$this->alias]['password']);
       }
+
+      return true;
     }
   }
 ```
