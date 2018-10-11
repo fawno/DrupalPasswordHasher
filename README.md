@@ -1,0 +1,2 @@
+# DrupalPasswordHasher
+DrupalPasswordHasher for CakePHP
