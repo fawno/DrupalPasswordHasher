@@ -1,5 +1,5 @@
 {
-    "name": "fawno/drupal-password-hasher",
+    "name": "fawno/DrupalPasswordHasher",
     "description": "Drupal Password Hasher for CakePHP 3.x",
     "keywords": ["CakePHP", "Drupal", "Password", "Hasher"],
     "license": "MIT",
