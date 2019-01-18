@@ -4,8 +4,18 @@
     "keywords": ["CakePHP", "Drupal", "Password", "Hasher"],
     "license": "MIT",
     "type": "cakephp-plugin",
+    "authors": [
+        {
+            "name": "Fawno",
+            "homepage": "https://github.com/fawno/DrupalPasswordHasher/graphs/contributors"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/fawno/DrupalPasswordHasher/issues",
+        "source": "https://github.com/fawno/DrupalPasswordHasher"
+    },
     "require": {
-        "cakephp/cakephp": ">=3.5.0"
+        "cakephp/cakephp": ">=3.0"
     },
     "autoload": {
         "psr-4": {

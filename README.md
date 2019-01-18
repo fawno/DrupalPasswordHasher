@@ -1,17 +1,22 @@
+[![](https://img.shields.io/github/license/fawno/DrupalPasswordHasher.svg?style=plastic)](https://github.com/fawno/DrupalPasswordHasher/blob/master/LICENSE)
+
 # DrupalPasswordHasher
 DrupalPasswordHasher for CakePHP 3.x
 
 ## Install
-Copy src/Auth dir into your src dir.
+```bash
+composer require fawno/drupal-password-hasher
+```
+
 
 ## Config AppController.php
 ```php
+  use Fawno\Auth\DrupalPasswordHasher;
+
   $this->loadComponent('Auth', [
     'authenticate' => [
       'Form' => [
-        'passwordHasher' => [
-          'className' => 'Drupal',
-        ],
+        'passwordHasher' => DrupalPasswordHasher::class,
         'fields' => [
           'username' => 'username',
           'password' => 'password',
@@ -22,7 +27,7 @@ Copy src/Auth dir into your src dir.
 ```
 ## Config Model/Entity/User.php
 ```php
-  use App\Auth\DrupalPasswordHasher;
+  use Fawno\Auth\DrupalPasswordHasher;
 
   class User extends Entity {
     protected function _setPassword ($value) {
