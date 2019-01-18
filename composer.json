@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fawno\\Auth\\": "src"
+            "Fawno\\Auth\\": "src\\Auth"
         }
     }
 }
