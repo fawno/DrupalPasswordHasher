@@ -1,5 +1,5 @@
 <?php
-  namespace App\Auth;
+  namespace Fawno\Auth;
 
   use Cake\Auth\AbstractPasswordHasher;
 
